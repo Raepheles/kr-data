@@ -3,12 +3,12 @@
     <b-card style="margin-bottom: 2em; text-align: center;" no-body bg-variant="dark">
       <b-tabs card>
         <b-tab class="heroTab" v-for="currentClass in classes" :title="currentClass" v-bind:key="currentClass">
-          <img class="heroIcon" v-for="hero in heroesJson" v-if="hero.class === currentClass" :key="hero.id" :src="getHeroImg(hero.name)" onerror="this.src='static/placeholder.png'" @click="selectedHero = hero"/>
+          <img class="heroIcon" v-for="hero in heroesJson" v-if="hero.class === currentClass" :key="hero.id" :src="getHeroImg(hero.name)" @click="selectedHero = hero"/>
         </b-tab>
       </b-tabs>
     </b-card>
     <b-card bg-variant="dark">
-      <img :src="getHeroImg(selectedHero.name)" onerror="this.src='static/placeholder.png'" style="width: 4em; margin-right: 0.5em; margin-bottom: 0.5em;" align="left"/>
+      <img :src="getHeroImg(selectedHero.name)" style="width: 4em; margin-right: 0.5em; margin-bottom: 0.5em;" align="left"/>
       <h4>{{selectedHero.name}}</h4>
       <h5 style="color: lightgray; font-style: italic;">{{selectedHero.title}}</h5>
       <hr style="clear: left">
@@ -44,7 +44,7 @@
       <!-- HERO UW -->
       <b-collapse id="uw" class="mt-2" accordion="accordion1">
         <hr>
-        <img :src="getUwImg(selectedHero.name)" onerror="this.src='static/placeholder.png'" style="margin-right: 0.5em; margin-bottom: 0.5em; border: 0.2em solid white;" align="left"/>
+        <img :src="getUwImg(selectedHero.name)" style="margin-right: 0.5em; margin-bottom: 0.5em; border: 0.2em solid white;" align="left"/>
         <p>{{selectedHero.uw.name}}</p>
         <p>{{selectedHero.uw.explanation}}</p>
         <p style="clear: left" v-for="(effects, index) in selectedHero.uw.effects" :key="index">
@@ -54,7 +54,7 @@
       <!-- HERO UT -->
       <b-collapse id="ut" class="mt-2" accordion="accordion1">
         <hr>
-        <img :src="getUtImg(selectedHero.name)" onerror="this.src='static/placeholder.png'" style="margin-right: 0.5em; margin-bottom: 0.5em; border: 0.2em solid white;" align="left"/>
+        <img :src="getUtImg(selectedHero.name)" style="margin-right: 0.5em; margin-bottom: 0.0em; border: 0.2em solid white;" align="left"/>
         <p>{{selectedHero.ut.name}}</p>
         <p>{{selectedHero.ut.description}}</p>
         <p style="clear: left" v-for="(effects, index) in selectedHero.ut.effects" :key="index">
@@ -84,8 +84,7 @@
 </template>
 
 <script>
-import json from '@/assets/heroes.json'
-import App from '../App.vue'
+import json from './data/heroes.json'
 
 var classes = []
 var selectedHero = json[0]
@@ -104,7 +103,6 @@ export default {
       heroesJson: json,
       selectedHero: selectedHero,
       classes: classes,
-      language: App.language,
       books: [],
       response: [],
       errors: []
@@ -112,15 +110,15 @@ export default {
   },
   methods: {
     getHeroImg (hero) {
-      return 'static/heroes/' + hero + '.png'
+      return require('./images/heroes/' + hero + '.png')
     },
 
     getUwImg (hero) {
-      return 'static/uw/' + hero + '.png'
+      return require('./images/uw/' + hero + '.png')
     },
 
     getUtImg (hero) {
-      return 'static/ut/' + hero + '.png'
+      return require('./images/ut/' + hero + '.png')
     }
   }
 }
