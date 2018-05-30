@@ -51,8 +51,8 @@ export default {
   min-height: calc(100vh - 25px - 56px);
 }
 body {
-  background-image: url("../static/bg.png");
-  background-repeat: no-repeat;
+  background-image: url("../static/bg-tile.png");
+  background-repeat: repeat;
   background-attachment: fixed;
 }
 </style>
