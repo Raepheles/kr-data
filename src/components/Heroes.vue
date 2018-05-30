@@ -67,7 +67,11 @@
           <hr>
           <p><b>{{skill.name}} [Cost: {{skill.cost}}] [Cooldown: {{skill.cooldown}}]</b></p>
           <p>{{skill.explanation}}</p>
-          <p>{{skill.id}}</p>
+          <span v-if="Object.keys(skill.linked).length != 0">
+            <p class="red"><b>Linked Skill</b></p>
+            <p><b>{{skill.linked.name}} [Cost: {{skill.linked.cost}}] [Cooldown: {{skill.linked.cooldown}}]</b></p>
+            <p>{{skill.linked.description}}</p>
+          </span>
           <b-btn v-b-toggle="'books'+index" variant="primary" align="left">Attributes</b-btn>
           <b-btn v-b-toggle="'perks'+index" variant="primary" align="left">Perks</b-btn>
           <b-collapse :id="'books'+index" class="mt-2" accordion="accordion2">
@@ -156,5 +160,8 @@ a {
   border: 5px solid red;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+.red{
+  color: red;
 }
 </style>
