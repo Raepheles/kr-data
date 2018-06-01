@@ -20,17 +20,27 @@
       <!-- HERO INFO -->
       <b-collapse id="hero-info" class="mt-2" accordion="accordion1">
         <hr>
-        <div style="line-height: 0.5em; margin-top: 1em;">
-          <p>Class: {{selectedHero.class}}</p>
-          <p>Position: {{selectedHero.position}}</p>
-          <p>Damage Type: {{selectedHero.type}}</p>
+        <div style="margin-top: 1em;">
+          <p><b class="red">Class:</b> {{selectedHero.class}}</p>
+          <p><b class="red">Position:</b> {{selectedHero.position}}</p>
+          <p><b class="red">Damage Type:</b> {{selectedHero.type}}</p>
+          <hr>
+          <p><b class="red">Gender:</b> {{selectedHero['index info'].gender}}</p>
+          <p><b class="red">Age:</b> {{selectedHero['index info'].age}}</p>
+          <p><b class="red">Height:</b> {{selectedHero['index info'].height}}</p>
+          <p><b class="red">Race:</b> {{selectedHero['index info'].race}}</p>
+          <p><b class="red">Constellation:</b> {{selectedHero['index info'].constellation}}</p>
+          <p><b class="red">Birth Month:</b> {{selectedHero['index info']['birth month']}}</p>
+          <p><b class="red">Likes:</b> {{selectedHero['index info'].likes}}</p>
+          <p><b class="red">Dislikes:</b> {{selectedHero['index info'].dislikes}}</p>
+          <p><b class="red">Story:</b> {{selectedHero['index info'].story}}</p>
           <hr>
           <div style="float: left; margin-right: 2em;">
-            <p style="color: red;">Main Stats</p>
+            <p><b class="red">Main Stats</b></p>
             <p v-for="(value, key) in selectedHero['main stats']" :key="key">{{key}}: {{value}}</p>
           </div>
           <div style="float: left">
-            <p style="color: red;">Sub Stats</p>
+            <p><b class="red">Sub Stats</b></p>
             <p v-for="(value, key) in selectedHero['additional stats']" :key="key" v-if="value != 0">{{key}}: {{value}}</p>
           </div>
         </div>
@@ -163,5 +173,8 @@ a {
 }
 .red{
   color: red;
+}
+p {
+  margin-bottom: 0px;
 }
 </style>
