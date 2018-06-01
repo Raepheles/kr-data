@@ -48,7 +48,13 @@ export default {
   /*background-color: darkgray;*/
   margin: auto;
   width: 50%;
+  min-width: 600px;
   min-height: calc(100vh - 25px - 56px);
+}
+@media screen and (max-width: 600px) {
+    .router-view {
+        min-width: 100%;
+    }
 }
 body {
   background-image: url("../static/bg-tile.png");
