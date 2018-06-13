@@ -48,8 +48,21 @@
       <!-- HERO PERKS -->
       <b-collapse id="hero-perks" class="mt-2" accordion="accordion1">
         <hr>
-        <div>{{selectedHero.perks[0]}}</div>
-        <div>{{selectedHero.perks[1]}}</div>
+        <p class="red"><b>T1 Perks</b></p>
+        <p>{{selectedHero['t1 perks'][0]}}</p>
+        <p>{{selectedHero['t1 perks'][1]}}</p>
+        <p>{{selectedHero['t1 perks'][2]}}</p>
+        <p>{{selectedHero['t1 perks'][3]}}</p>
+        <p class="red"><b>T2 Perks</b></p>
+        <p>{{selectedHero['t2 perks'][0]}}</p>
+        <p>{{selectedHero['t2 perks'][1]}}</p>
+        <p>{{selectedHero['t2 perks'][2]}}</p>
+        <p>{{selectedHero['t2 perks'][3]}}</p>
+        <p class="red"><b>T5 Perks</b></p>
+        <p>{{selectedHero.perks[0]}}</p>
+        <p>{{selectedHero.perks[1]}}</p>
+        <br/>
+        <p><i>Skill perks are on skills tab.</i></p>
       </b-collapse>
       <!-- HERO UW -->
       <b-collapse id="uw" class="mt-2" accordion="accordion1">
