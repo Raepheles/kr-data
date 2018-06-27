@@ -20,7 +20,7 @@
     </b-card>
     <!-- Artifact Display -->
     <b-card bg-variant="dark">
-      <img :src="getArtifactImg(selectedArtifact.name)" style="margin-right: 0.5em; margin-bottom: 0.0em; border: 0.2em solid white;" align="left"/>
+      <img :src="getArtifactImg(selectedArtifact.name)" width="128" height="128" style="margin-right: 0.5em; margin-bottom: 0.0em; border: 0.2em solid white;" align="left"/>
       <p>{{selectedArtifact.name}}</p>
       <p>{{selectedArtifact.description}}</p>
       <p style="clear: left" v-for="(effects, index) in selectedArtifact.effects" :key="index">
