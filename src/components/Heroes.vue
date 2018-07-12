@@ -77,10 +77,17 @@
       <!-- HERO UT -->
       <b-collapse id="ut" class="mt-2" accordion="accordion1">
         <hr>
-        <img :src="getUtImg(selectedHero.name)" style="margin-right: 0.5em; margin-bottom: 0.0em; border: 0.2em solid white;" align="left"/>
-        <p>{{selectedHero.ut.name}}</p>
-        <p>{{selectedHero.ut.description}}</p>
-        <p style="clear: left" v-for="(effects, index) in selectedHero.ut.effects" :key="index">
+        <img :src="getUt2Img(selectedHero.name)" style="margin-right: 0.5em; margin-bottom: 0.0em; border: 0.2em solid white;" align="left"/>
+        <p>[S2 UT]{{selectedHero.ut2.name}}</p>
+        <p>{{selectedHero.ut2.description}}</p>
+        <p style="clear: left" v-for="(effects, index) in selectedHero.ut2.effects" :key="index">
+          { {{index}} }: <span v-for="(effect, index) in effects" :key="index">{{effect}}<span v-if="index != effects.length-1">, </span></span>
+        </p>
+        <hr>
+        <img :src="getUt3Img(selectedHero.name)" style="margin-right: 0.5em; margin-bottom: 0.0em; border: 0.2em solid white;" align="left"/>
+        <p>[S3 UT]{{selectedHero.ut3.name}}</p>
+        <p>{{selectedHero.ut3.description}}</p>
+        <p style="clear: left" v-for="(effects, index) in selectedHero.ut3.effects" :key="index">
           { {{index}} }: <span v-for="(effect, index) in effects" :key="index">{{effect}}<span v-if="index != effects.length-1">, </span></span>
         </p>
       </b-collapse>
@@ -137,15 +144,35 @@ export default {
   },
   methods: {
     getHeroImg (hero) {
-      return require('./images/heroes/' + hero + '.png')
+      try {
+        return require('./images/heroes/' + hero + '.png')
+      } catch (e) {
+        return require('./images/placeholder.png')
+      }
     },
 
     getUwImg (hero) {
-      return require('./images/uw/' + hero + '.png')
+      try {
+        return require('./images/uw/' + hero + '.png')
+      } catch (e) {
+        return require('./images/placeholder.png')
+      }
     },
 
-    getUtImg (hero) {
-      return require('./images/ut/' + hero + '.png')
+    getUt3Img (hero) {
+      try {
+        return require('./images/ut3/' + hero + '.png')
+      } catch (e) {
+        return require('./images/placeholder.png')
+      }
+    },
+
+    getUt2Img (hero) {
+      try {
+        return require('./images/ut2/' + hero + '.png')
+      } catch (e) {
+        return require('./images/placeholder.png')
+      }
     }
   }
 }
