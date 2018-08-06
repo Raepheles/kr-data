@@ -95,7 +95,15 @@
       <b-collapse id="skills" class="mt-2" accordion="accordion1">
         <div :key="index" v-for="(skill, index) in selectedHero.skills">
           <hr>
-          <p><b>{{skill.name}} [Cost: {{skill.cost}}] [Cooldown: {{skill.cooldown}}]</b></p>
+          <p><b>{{skill.name}} [Cost:
+            <span v-if="skill.cost == -1">NULL</span>
+            <span v-else-if="skill.cost == 0">No Cost</span>
+            <span v-else>{{skill.cost}}</span>
+            ] [Cooldown:
+            <span v-if="skill.cooldown == -1">NULL</span>
+            <span v-else-if="skill.cooldown == 0">No Cooldown</span>
+            <span v-else>{{skill.cooldown}}</span>
+            ]</b></p>
           <p>{{skill.explanation}}</p>
           <span v-if="Object.keys(skill.linked).length != 0">
             <p class="red"><b>Linked Skill</b></p>
